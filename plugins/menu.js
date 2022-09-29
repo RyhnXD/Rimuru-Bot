@@ -405,7 +405,7 @@ return conn.send3ButtonLoc(m.chat, await conn.resize(pickRandom(global.waifu), 
      } 
      text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name]) 
  
-       await conn.reply(m.chat, '*[❗] Memuat Menu...*', ftroli) 
+       await conn.reply(m.chat, '*[❗] Memuat Menu...*', haori) 
  
    /*await conn.send2ButtonImg(m.chat, await (await fetch('https://api.xteam.xyz/textpro/glitch?text=' + teks + '&text2=CUTE%20IQ-MD%20BY%20ZIV%20SAN&APIKEY=bf8ff984af1506b7')).buffer(), text.trim(), hao, 'Donasi', '.donasi', 'Rules', '.rules', m, { 
      quoted: ftoko, 
