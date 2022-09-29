@@ -65,6 +65,7 @@ global.deslink = ''
 global.logo = 'https://telegra.ph/file/1665521d176fbf172d735.jpg'
 global.titlink = 'Folllow me on Instagram'
 global.bodlink = '@the.sad.boy01'
+global.watermark = 'Rimuru Sama'
 
 global.wait = '_*𝐬𝐞𝐝𝐚𝐧𝐠 𝐝𝐢 𝐩𝐫𝐨𝐬𝐞𝐬 ...*_'
 global.eror = '_*ᴍᴀᴀғ sᴇʀᴠᴇʀ ᴛɪᴅᴀᴋ sᴛᴀʙɪʟ..*_'
