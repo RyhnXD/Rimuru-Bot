@@ -749,16 +749,18 @@ global.dfail = async (type, m, conn) => {
     /*}[type]
     if (msg) return conn.reply(m.chat, msg, m, { mentions: conn.parseMention(msg) })*/
     }[type]
-    if (msg) return conn.sendButtonDoc(m.chat, msg, wmo, 'Menu', '.menu', m, {
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, wm, 'Menu', '.menu', 'Verify', '.daftar', m, {
   mentions: conn.parseMention(msg),
-  contextInfo: { externalAdReply :{
-    mediaUrl: ig,
+  contextInfo: { 
+    externalAdReply :{
+    showAdAttribution: true,
+    mediaUrl: data.sc,
     mediaType: 'FOTO',
-    description: desl, 
-    title: titl,
-    body: wmo,
-    thumbnail: await(await fetch(im)).buffer(),
-    sourceUrl: gc
+    description: '', 
+    title: 'Hay Kak',
+    body: 'ʟᴜᴍɪᴍᴏᴜs-ᴍᴅ ɪɪ',
+    thumbnail: await(await fetch(img)).buffer(),
+    sourceUrl: data.sc
      }}
   })
 }
