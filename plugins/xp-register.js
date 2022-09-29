@@ -1,27 +1,30 @@
 const { createHash } = require('crypto')
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-let _uptime = process.uptime() * 1000
-let uptime = clockString(_uptime)
-let sn = createHash('md5').update(m.sender).digest('hex')
-let fk = {
+	let namae = conn.getName(m.sender)
+	let _uptime = process.uptime() * 1000
+    let uptime = clockString(_uptime)
+    let sn = createHash('md5').update(m.sender).digest('hex')
+	let flu = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='
+	let fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text='
+    let ftrol = {
     key : {
     remoteJid: 'status@broadcast',
     participant : '0@s.whatsapp.net'
     },
     message: {
     orderMessage: {
-    itemCount : 999999999828182719999,
-    status: 4827204,
-    surface : 4072824,
-    message: '▸ Terimakasih Telah Mendaftar 🏷️', 
-    orderTitle: wm,
-    thumbnail: await (await fetch('https://telegra.ph/file/f7800c83b617702527c30.jpg')).buffer(), //Gambarnye
+    itemCount : 2022,
+    status: 1,
+    surface : 1,
+    message: `📮 𝗥𝗣𝗚 Whatsapp ʙᴏᴛ`, 
+    orderTitle: `▮Menu ▸`,
+    thumbnail: await conn.resize(await (await fetch(flu + 'VERIFY')).buffer(), 300, 200), //Gambarnye
     sellerJid: '0@s.whatsapp.net' 
     }
+    } 
     }
-    }
-let fz = {
+    let fz = {
 	key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(m.chat ? 
@@ -35,33 +38,82 @@ let fz = {
                  'gifPlayback': 'true', 
                  'caption': `「 RUNTIME BOT 」
 ⏲️ Waktu: ${time} WIB
-💌 Aktif Selama : ${uptime}`, 'jpegThumbnail': await (await fetch('https://telegra.ph/file/f7800c83b617702527c30.jpg')).buffer()
+💌 Aktif Selama : ${uptime}`, 'jpegThumbnail': await (await fetch('https://telegra.ph/file/7cac84df0437232734f8a.jpg')).buffer()
                           }
                         }
                       }
- let user = global.db.data.users[m.sender]
+let judul = ''
+ 	       const sections = [
+	{
+	title: "Select Your Age Here !",
+	rows: [
+	    {title: "Random Years", rowId: '.daftar ' + namae + '.' + pickRandom(['30','29','28','27','26','25','24','23','22','21','20','19','18','17','16','15','14','13','12','11','10','9'])}
+	]
+    },
+    {
+	title: "O L D",
+	rows: [
+	    {title: "30 Years", rowId: '.daftar ' + namae + '.30 '},
+	    {title: "29 Years", rowId: '.daftar ' + namae + '.29 '},
+	    {title: "28 Years", rowId: '.daftar ' + namae + '.28 '},
+	{title: "27 Years", rowId: '.daftar ' + namae + '.27 '},
+	{title: "26 Years", rowId: '.daftar ' + namae + '.26 '},
+	{title: "25 Years", rowId: '.daftar ' + namae + '.25 '},
+	{title: "24 Years", rowId: '.daftar ' + namae + '.24 '},
+	{title: "23 Years", rowId: '.daftar ' + namae + '.23 '},
+	{title: "22 Years", rowId: '.daftar ' + namae + '.22 '},
+	{title: "21 Years", rowId: '.daftar ' + namae + '.21 '}
+	]
+    },
+    {
+	title: "Y O U N G",
+	rows: [
+	    {title: "20 Years", rowId: '.daftar ' + namae + '.20 '},
+	    {title: "19 Years", rowId: '.daftar ' + namae + '.19 '},
+	    {title: "18 Years", rowId: '.daftar ' + namae + '.18 '},
+	{title: "17 Years", rowId: '.daftar ' + namae + '.17 '},
+	{title: "16 Years", rowId: '.daftar ' + namae + '.16 '},
+	{title: "15 Years", rowId: '.daftar ' + namae + '.15 '},
+	{title: "14 Years", rowId: '.daftar ' + namae + '.14 '},
+	{title: "13 Years", rowId: '.daftar ' + namae + '.13 '},
+	{title: "12 Years", rowId: '.daftar ' + namae + '.12 '},
+	{title: "11 Years", rowId: '.daftar ' + namae + '.11 '},
+	{title: "10 Years", rowId: '.daftar ' + namae + '.10 '},
+	{title: "9 Years", rowId: '.daftar ' + namae + '.9 '}
+	]
+    },
+]
+         const listMessage = {
+      text: `*──── 「 NOT REGISTERED 」 ────*
+      
+📮 Silahkan Pilih Umur Anda!
+📛 Bisa Juga Dengan Cara Di Bawah
+
+「 *CONTOH* 」
+✦ .daftar namamu.umurmu
+✦ .daftar Rayhn.18`,
+      footer: wm,
+      mentions: await conn.parseMention(judul),
+      title: judul.trim(),
+      buttonText: "VERIFY",
+      sections
+    }
+  let user = global.db.data.users[m.sender]
   if (user.registered === true) return conn.sendButtonDoc(m.chat, `@${m.sender.split`@`[0]} Kamu sudah terdaftar! mau daftar ulang?`, wm, 'Iya', '.unreg ' + sn, m, {
     quoted: fz,
     contextInfo: { forwardingScore: 99999, isForwarded: true,
         externalAdReply: {
-        	sourceUrl: 'https://wa.me/62895637514070',
+        	sourceUrl: 'https://vt.tiktok.com/ZSRRmS8vh/',
             title: wm + ' 🍃',
             body: `💌 Aktif Selama : ${uptime}`,
-          thumbnail: await (await fetch('https://telegra.ph/file/f7800c83b617702527c30.jpg')).buffer()
+          thumbnail: await (await fetch('https://telegra.ph/file/442d27b78682cac9e00f2.jpg')).buffer()
         }
      }
     })
-  if (!Reg.test(text)) return conn.sendButtonDoc(m.chat, `contoh:\n*${usedPrefix + command} Ray.16*`, wm, 'Menu', '.menu', m, {
-    quoted: fz,
-    contextInfo: { forwardingScore: 99999, isForwarded: true,
-        externalAdReply: {
-        	sourceUrl: 'https://wa.me/62895627514070',
-            title: wm + ' 🍃',
-            body: `💌 Aktif Selama : ${uptime}`,
-          thumbnail: await (await fetch('https://telegra.ph/file/f7800c83b617702527c30.jpg')).buffer()
-        }
-     }
-    })
+  if (!Reg.test(text)) return conn.sendMessage(m.chat, listMessage, { quoted: ftrol, mentions: await conn.parseMention(judul), contextInfo: { externalAdReply :{ 
+     showAdAttribution: true, 
+      }} 
+   })
   let [_, name, splitter, age] = text.match(Reg)
   if (!name) throw 'Nama tidak boleh kosong (Alphanumeric)'
   if (!age) throw 'Umur tidak boleh kosong (Angka)'
@@ -73,50 +125,49 @@ let fz = {
   user.regTime = + new Date
   user.registered = true
   let prefix = usedPrefix
-let hao = `
+let hao = `ᴅᴀᴛᴀ ᴜsᴇʀ ʏᴀɴɢ ᴛᴇʀsɪᴍᴘᴀɴ ᴅɪᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ, ᴅɪᴊᴀᴍɪɴ ᴀᴍᴀɴ ᴛᴀɴᴘᴀ ᴛᴇʀsʜᴀʀᴇ (. ❛ ᴗ ❛.)
 
 *Registered In Database*
-*Supported By @${global.owner[1].split('@')[0]}*` 
-  let emot = conn.pickRandom(["☑️"])
-  let totalreg = Object.keys(global.db.data.users).length
-  conn.sendMessage(m.chat, {
-    	react: {
-    		text: emot,
-    		key: m.key
-    	}
-    })	
-conn.sendButtonDoc(m.chat, `
-◪ *「 DAFTAR BERHASIL 」*
-╰───────────────────╮
-╭───────────────────╯
-├❏ Tag : @${m.sender.split`@`[0]}
-├❏ Nama : ${name}
-├❏ Umur : ${age} tahun
-├❒ Total User : ${totalreg} nomor
-╰───────────────────
+*Supported By @${global.owner[0].split('@')[0]}*` 
+  conn.sendButtonLoc(m.chat, await conn.resize(await (await fetch('https://telegra.ph/file/4a7e5f18efaadec18a7a0.jpg')).buffer(), 300, 200),  `
+┏─• *ᴜsᴇʀs*
+│▸ *sᴛᴀᴛᴜs:* ☑️ sᴜᴄᴄᴇssғᴜʟ
+│▸ *ɴᴀᴍᴇ:* ${name}
+│▸ *ᴀɢᴇ:* ${age} ʏᴇᴀʀs
+│▸ *sɴ:* ${sn}
+┗────···
 
 *SN* (Serial Number) di kirim di chat pribadi dan digunakan untuk daftar ulang, jika lupa *SN* silahkan ketik *${usedPrefix}sn* untuk mengecek *SN* kamu! 
-`.trim(), wm, `Profile`,`${prefix}pp`, m, {
-    quoted: fk,
-    contextInfo: { forwardingScore: 99999, isForwarded: true,
-        externalAdReply: {
-        	sourceUrl: 'https://wa.me/62895627514070',
-            title: 'Terimakasih Telah Daftar 🍃',
-            body: 'ʟᴜᴍɪɴᴏᴜs-ʙᴏᴛ',
-          thumbnail: await (await fetch(fla + 'Registered')).buffer()
-        }
-     }
-    })
-conn.send2ButtonLoc(m.sender, 'https://telegra.ph/file/cdf7e73f51d11643aac4e.jpg', `Ini Berguna Untuk Unregister, Simpan Dengan Baik Sn Untuk Menjaga Data Pribadi Anda
+`.trim(), wm, `Profile`,`${prefix}pp`, m) 
+conn.sendButtonLoc(m.sender, await conn.resize(await (await fetch(fla + 'Registered')).buffer(), 300, 200), `Terimakasih Telah Daftar Di Data Base Bot
 
-*ID* : ${pickRandom(['GGA0QH119J1','JPA017P02HA1','PWJROSAIEJ','LAOFOODJQ','PWJFCIFIF','QBBVAODEPZ','QPWEJDNDJD','IQPQBAHSIF','UWUWIWOKPF','PQJDXBXB','AKSJALPQDN','HALAKDILQU','IAIIWIICCIS','KQPSNWO','BSBANSKA','JANSNDKSOS','JDKALDKKAPPPP','12OJB0IHBV390','PWWJ017027GA14','19QPDKALLH61J','PWJSJDDUYSYSHSU','1001UQOXJ9JJDY','PQPSODUE107','BBBAKZOOX','00071','WKESOAKWLA','104JALOA9','OSBDOSODO','PWODJDOSKFJSOO','OWJCKEOS','PAJDISO','OSJDOWO','BABAOALKS','PWKW827LA9PA0','PWOEOOOJF','LCKDI2027H393P','IWUEUJEDGWEUEUE','WJA0I2845KN','HAGFUUXUQP3','P0000009769767T0O87Y5','0TT9I4UO43','P7YYRE8583E6','NZNSJEO','P8Y4W38P0R','P8R6IOP4EU-HG0','0729OWRU','APP1MJ90038SJ','98JHEB072NO9','BbL016JJQBCSr54OwwW0','BbJdQ0X37ohL016HhqK','BbJdQ0X37ohL016HhqK','GgGddSsssss1039','HAOSOWODJSO','BVjd173k6BEk','AEOKKAKSKKAK20468','BBWUK017KASK','QMB09R4K8SJ','1238PBLLWO20','KODE123','jajsoskskskOOoO0292','GAGHWPPWSIJ','PWEUPiwpepwp02928','000000723','QPWOEJSJAL','BBAHUSQPEI','HHGGGAGAGODPF','PUS1383PW0292838','HHHB203828LALJK','FFAFUAFAGGAFAFOWVA','PWKDIAPDHZOA','QPWOEUDMZ','103838PW02XLAK','AWOAOAKSPAJDOA','bbbaoduwuslp','kawpajeif','1037pWjs0273BBNjK1','Or4nGB3g04N71nk','Hhhhhhhpwishahhhh','Paosjsh102','Vvvavahsi239hOwpP','PAH103891','RAPEHAL028473','0193910392','103892928','0293829293','02838292','WPPPJSUEUND','01387482923828','gqlI000iwhBYYj0239','DGAOOW','PWOEUDOAO','B0OHF7864IJN','OWRHWOKDIRE','BXKKWCOEDMJCIE','BBDGWOPDDMEO','148920392949202','WOEIOWEOO','19388292929383','MODARSIAHANJINK','BEBEOAODAPJ','LVOWOWIEPADH','GD0KNT3387N20','JUSTSKOSAO','PW2039LSHDOW','BVOVOVOVUUDEUA307','027492838','01398293','TAPIUPITKAOE103982','019382939','02848292838','OWOWOWOJDJADJLA019','PE023802794949nbK','owjfLjsoKhIOauwo','JKlskeoKJJTRYOJc','IHUOFEtUKPJVD302','HJPgFTIBDTI','029292848','IgwoekdkdomsB','HJOKJYYUlns','INNSAPTAILOEAJD','TAIANJSGSIAOPA','0238829103','02838385842111','9372893739991','BACHEUADL','RC047','BRAINTLUBA0284','DDDDDDDSALDKOE1048','11020393910101010201047GbkL','BrADIopaSLyeYA','JSJDJAKDSKLLLLAPRO','S1A4DTKI0087U','47492837','923772','BACHELAOF','1038828282','VAKDPOESMAQ0079'])}
-*SN:* ${sn}
+*SN:* ${sn}`, hao, `SN`,`${prefix}sn`, m) 
+   conn.verify = conn.verify ? conn.verify : {} 
+    user = DATABASE.data.home 
+    kode = Math.floor(Math.random() * 9999) 
+ let ziv = '```'
+ let hauo = `Reply Pesan Ini Atau Dan Balas Pesan Ini Untuk Verifikasi! Kode Di Pesan Di Bawah Ini
+Seluruh informasi kamu (no. handphone dan password) adalah rahasia. Jangan pernah berikan informasi tersebut kepada siapa pun. Cute Bot tidak pernah meminta informasi rahasia dari kamu.
 
-_*Note*_ :
--Kode ID jangan sampai lupa! Karna Diantara Kodenya adalah kode gift yang berhadiah! Jika Anda Beruntung!
--Kalau mau unreg, lupa sn ketik ${usedPrefix}sn
--Jika Ingin Main Rpg Bisa Klik Button Di Bawah Untuk Tutorial`, hao, 'Kode Sn', '.sn', 'Tutor Rpg', '.tutorpg', m)
+Your true data registered powered
+*Supported By @${global.owner[0].split('@')[0]}*` 
+    aww = await conn.sendButtonLoc(m.sender, 'https://telegra.ph/file/51fa80b60e45651dee465.jpg', `Welcome to Cute Bot ! Please confirm your account using the following code:
+
+${ziv}${kode}${ziv}
+`, hauo, 'Owner', `.owner`, m) 
+      conn.verify[m.sender] = { code: kode, key: aww.key.id } 
 }
+
+handler.all = async m => { 
+      if (!conn.verify) return 
+      if (!m.quoted) return 
+     if ((m.sender in conn.verify) == false) return 
+     if (m.text == conn.verify[m.sender].code && m.quoted.id == conn.verify[m.sender].key) { 
+     conn.sendButton(m.chat, '```Register Success```', '', 'Menu', '#menu', m ) 
+     DATABASE.data.home[m.sender].registered = true 
+     delete conn.verify[m.sender] 
+    } 
+ } 
 handler.help = ['daftar', 'register'].map(v => v + ' <name>.<age>')
 handler.tags = ['xp']
 
