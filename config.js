@@ -97,6 +97,14 @@ global.thumbnailUrl = [
   'https://telegra.ph/file/de92ed4a729887ffc974c.jpg', 'https://telegra.ph/file/00ce42a193b1dbbf907d4.jpg'
 ]
 
+global.hentai = [
+'https://telegra.ph/file/805a37b1e9a963e7d7ecf.jpg',
+'https://telegra.ph/file/f9c4d97477b647cf57a2b.jpg',
+'https://telegra.ph/file/b6905b77e6c7732592a13.jpg',
+'https://telegra.ph/file/9f82c432d0ba4cfffda9a.png',
+'https://telegra.ph/file/484083949d4bfd763b8cf.jpg'
+]
+
 //============= Games ================//
 global.benar = '_*Benar✅*_'
 global.salah = '_*Salah❌*_'
