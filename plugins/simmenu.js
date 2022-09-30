@@ -377,10 +377,10 @@ let ftt = `*Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan sil
                             }
            ] 
     const listMessage = {
-      text: `Hai Kak ${name} Pilih Menu Dibawah Ini Yah Kak`.trim(),
-      footer: 'Tetap Follow Terus Bot Yah Kak >//<',
+      text: `Halo ${name} Silahkan Pilih Menu Dibawah`.trim(),
+      footer: '[❗] Jika ada yang error segara lapor ke owner',
       title: judul,
-      buttonText: "Pilih Disini",
+      buttonText: "ᴘɪʟɪʜ ᴅɪsɪɴɪ",
       sections
     }
      await conn.send3ButtonLoc(m.chat, await conn.resize(await genProfile(conn, m), 300, 180), tksk, ftt, 'RENT', '.sewa', 'OWNER', '.owner', 'CREDITS', '.tqto', m)
