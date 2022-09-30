@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     surface : 1,
     message: `⚡ Speed ${await conn.getName(conn.user.jid)}`, 
     orderTitle: ``,
-    thumbnail: await (await fetch('https://telegra.ph/file/6e083ec916dce9821fc2e.jpg')).buffer(), //Gambarnye
+    thumbnail: await (await fetch('https://telegra.ph/file/7540eb3782c76072a0e32.jpg')).buffer(), //Gambarnye
     sellerJid: '0@s.whatsapp.net' 
     }
     }
@@ -88,9 +88,9 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
      quoted: ftrol,
      contextInfo: { forwardingScore: 99999, isForwarded: true, 
          externalAdReply: { 
-                 sourceUrl: 'https://vt.tiktok.com/ZSRRmS8vh/', 
+                 sourceUrl: 'tiktok.com/@hnxyz5', 
              title: `Merespon dalam ${speed} milidetik`, 
-             body: '© Cute IQ-MD By Ziv San', 
+             body: '© ʀɪᴍᴜʀᴜ ʙᴏᴛ', 
            thumbnail:  await (await fetch(fla + 'Ping')).buffer()
              } 
       } 
