@@ -621,7 +621,7 @@ module.exports = {
         if (opts['self']) return
         // if (id in conn.chats) return // First login will spam
         if (global.isInit) return
-        let chat = global.db.data.chats[id] || {}
+        let chat = db.data.chats[id] || {}
         let text = ''
         switch (action) {
             case 'add':
@@ -629,42 +629,23 @@ module.exports = {
                 if (chat.welcome) {
                     let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                     for (let user of participants) {
-                        let pp = 'https://telegra.ph/file/2d06f0936842064f6b3bb.png'
+                       let pp = 'https://telegra.ph/file/58acbba00bf7570860e61.png'
                         try {
                             pp = await this.profilePictureUrl(user, 'image')
                         } catch (e) {
-
                         } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
-                                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace(/@user/g, '@' + user.split`@`[0])
-                            let wel = API('hardianto', '/api/welcome3', {
-                                profile: pp,
-                                name: await this.getName(user),
-                                bg: 'https://telegra.ph/file/a36809ab7862a77d18ac0.jpg',
-                                namegb: await this.getName(id),
-                                member: groupMetadata.participants.length
-                            })
-                            let lea = API('hardianto', '/api/goodbye3', {
-                                profile: pp,
-                                name: await this.getName(user),
-                                bg: 'https://telegra.ph/file/a36809ab7862a77d18ac0.jpg',
-                                namegb: await this.getName(id),
-                                member: groupMetadata.participants.length
-                            })
-                            /*await this.send3TemplateButtonImg(id, action === 'add' ? wel : lea, text, wm, action === 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'FokusID')*/
-   await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'Luminous-MD', fkontak,{
-  contextInfo: {mentionedJid: [user],
-    externalAdReply :{
-    mediaUrl: linkyt,
-    mediaType: 'FOTO',
-    description: deslink , 
-    title: titlink,
-    body: wm,
-    thumbnail: await(await fetch(action === 'add' ? wel : lea)).buffer(),
-    sourceUrl: linkgc
-     }}
-  })
-                        }
+                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Halo @user Selamat datang di group').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
+                                (chat.sBye || this.bye || conn.bye || 'Selamat Tinggal @user!')).replace('@user', '@' + user.split('@')[0])
+                                this.send2ButtonImg(id, pp, text, "𝗥𝗶𝗺𝘂𝗿𝘂 𝗕𝗼𝘁", "Script Bot", ".sc", "Tampilan Menu", ".menu", fake, { contextInfo: { externalAdReply :{
+                                showAdAttribution: true,
+                                mediaUrl: data.sc,
+                                mediaType: 2,
+                                sourceUrl: data.sc,
+                                body: 'ʀɪᴍᴜʀᴜ ʙᴏᴛ',
+                                thumbnail: await(await fetch (img)).buffer(),
+                                title: action === 'add' ? 'Semoga Betah Yah Kak🤗' : 'ᴋᴏᴋ ᴋᴇʟᴜᴀʀ🗿',
+                                }}})
+                                }
                     }
                 }
                 break
