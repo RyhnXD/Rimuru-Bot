@@ -29,6 +29,7 @@ module.exports = {
         global.fkontak = global.fkontak
         global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
         global.img = 'https://telegra.ph/file/d71d9ef8851cb2c63c912.jpg'
+        global.takina = 'https://telegra.ph/file/0fe3fac3dc9625ca89715.jpg'
         global.fla = pickRandom(global.flaaa)
         global.namabot = conn.user.name
         global.packname = 'ʟᴜᴍɪɴᴏᴜs-ᴍᴅ'
@@ -642,7 +643,7 @@ module.exports = {
                                 mediaType: 2,
                                 sourceUrl: data.sc,
                                 body: 'ʀɪᴍᴜʀᴜ ʙᴏᴛ',
-                                thumbnail: await(await fetch (img)).buffer(),
+                                thumbnail: await(await fetch (takina)).buffer(),
                                 title: action === 'add' ? 'Semoga Betah Yah Kak🤗' : 'ᴋᴏᴋ ᴋᴇʟᴜᴀʀ🗿',
                                 }}})
                                 }
